@@ -1,5 +1,9 @@
 package Week2HomeAssignments;
 
+
+
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,9 +12,11 @@ import org.openqa.selenium.support.ui.Select;
 public class Facebookday2 {
 
 	public static void main(String[] args) {
+	
 		ChromeDriver FB=new ChromeDriver();
 		FB.get("https://en-gb.facebook.com");
 		FB.manage().window().maximize();
+		FB.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		FB.findElement(By.linkText("Create new account")).click();
 		FB.findElement(By.name("firstname")).sendKeys("Krithika");
 		FB.findElement(By.name("lastname")).sendKeys("K");
@@ -30,7 +36,7 @@ public class Facebookday2 {
         
         WebElement radiobutton = FB.findElement(By.xpath("//input[@type='radio' and @ value='1']"));
         radiobutton.click();
-        
+        System.out.println(radiobutton.isSelected());
         
    
         
